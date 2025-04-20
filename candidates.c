@@ -56,11 +56,14 @@ int main() {
     printf("=============================================================================================\n");
 
     for (int i = 0; i < NUM_CANDIDATES; i++) {
+        // TOPIK 점수가 0이면 "원어민", 아니면 입력한 값 출력
+        char *topik_display = ((*candidates[i])[8][0] == '0' && (*candidates[i])[8][1] == '\0') ? "원어민" : (*candidates[i])[8];
+
         // 기본 정보 출력
         printf("%-7s|%-9s|%-4s|%-20s|%-6s|%-5s|%-8s|%-10s|%-9s|%-6s|\n",
                (*candidates[i])[0], (*candidates[i])[1], (*candidates[i])[2],
                (*candidates[i])[3], (*candidates[i])[4], (*candidates[i])[5],
-               (*candidates[i])[6], (*candidates[i])[7], (*candidates[i])[8],
+               (*candidates[i])[6], (*candidates[i])[7], topik_display,
                (*candidates[i])[9]);
 
         // 소개 구분선
